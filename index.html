@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Undangan Pernikahan Ereh & Mikasa</title>
+  <meta name="description" content="Undangan elegan Ereh & Mikasa dengan RSVP, kirim doa, galeri, countdown, dan peta." />
+  <link rel="icon" href="assets/favicon.png" type="image/png" />
+  <link rel="preload" href="assets/hero.jpg" as="image" />
+  <link rel="preload" href="audio.mp3" as="audio" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <audio src="audio.mp3" id="bgMusic" loop></audio>
+  <!-- Navbar -->
+  <nav class="nav">
+    <div class="brand">Ereh & Mikasa</div>
+    <button class="menu-btn" aria-label="Toggle menu">☰</button>
+    <ul class="menu">
+      <li><a href="#home">Beranda</a></li>
+      <li><a href="#details">Acara</a></li>
+      <li><a href="#gallery">Galeri</a></li>
+      <li><a href="#guestbook">Kirim Doa</a></li>
+      <li><a href="#rsvp">RSVP</a></li>
+      <li><a href="#location">Lokasi</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <header id="home" class="hero">
+    <img src="eremika.jpg" alt="Foto Ereh & Mikasa" class="hero-img" />
+    <div class="hero-overlay">
+      <h1 class="couple">Ereh & Mikasa</h1>
+      <p class="date">Sabtu, 25 Oktober 2025</p>
+      <div id="countdown" class="countdown" aria-live="polite"></div>
+      <div class="hero-actions">
+        <a href="#rsvp" class="btn primary">Konfirmasi Kehadiran</a>
+        <button id="playMusic" class="btn outline" aria-label="Putar musik">🎵 Putar Musik</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Detail acara -->
+  <section id="details" class="section">
+    <h2 class="section-title">Detail Acara</h2>
+    <div class="details-grid">
+      <div class="card">
+        <h3>Akad Nikah</h3>
+        <p><strong>Waktu:</strong> 10.00 WIB</p>
+        <p><strong>Tanggal:</strong> Sabtu, 25 Oktober 2025</p>
+        <p><strong>Tempat:</strong> Masjid Agung Batam</p>
+      </div>
+      <div class="card">
+        <h3>Resepsi</h3>
+        <p><strong>Waktu:</strong> 19.00–21.00 WIB</p>
+        <p><strong>Tanggal:</strong> Sabtu, 25 Oktober 2025</p>
+        <p><strong>Tempat:</strong> Ballroom Hotel</p>
+      </div>
+      <div class="card quote">
+        <blockquote>
+          “Dan di antara tanda-tanda kebesaran-Nya adalah Dia menciptakan pasangan-pasangan untukmu.” — QS. Ar-Rum: 21
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- filepath: c:\xampp\htdocs\Website Pernikahan\index.html -->
+<!-- Galeri (foto + lightbox) -->
+<section id="gallery" class="section">
+  <h2 class="section-title">Galeri Cinta</h2>
+  <div class="gallery">
+    <div class="gallery-track gallery-2">
+      <img src="fotbar.avif" alt="Foto Ereh & Mikasa 1" class="glight" />
+      <img src="eremika.jpg" alt="Foto Ereh & Mikasa 2" class="glight" />
+    </div>
+    <div class="gallery-controls">
+    </div>
+  </div>
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <img id="lightboxImg" alt="Foto galeri" />
+    <button id="lightboxClose" class="lightbox-close" aria-label="Tutup">✕</button>
+  </div>
+</section>
+
+  <!-- Kirim doa -->
+  <section id="guestbook" class="section">
+    <h2 class="section-title">Kirim Doa & Ucapan</h2>
+    <form id="doaForm" class="form">
+      <input type="text" id="namaDoa" placeholder="Nama Anda" required aria-label="Nama" />
+      <textarea id="pesanDoa" placeholder="Tulis doa atau ucapan..." required aria-label="Ucapan"></textarea>
+      <button type="submit" class="btn primary">Kirim</button>
+      <p class="form-hint">Ucapan disimpan secara lokal di perangkat ini.</p>
+    </form>
+    <div id="ucapanList" class="ucapan-list" aria-live="polite"></div>
+  </section>
+
+  <!-- RSVP -->
+  <section id="rsvp" class="section">
+    <h2 class="section-title">Konfirmasi Kehadiran (RSVP)</h2>
+    <form id="rsvpForm" class="form">
+      <input type="text" id="namaRsvp" placeholder="Nama Anda" required aria-label="Nama" />
+      <select id="statusRsvp" required aria-label="Status kehadiran">
+        <option value="">Pilih status kehadiran</option>
+        <option value="Hadir">Hadir</option>
+        <option value="Tidak Hadir">Tidak Hadir</option>
+      </select>
+      <input type="number" id="jumlahRsvp" placeholder="Jumlah tamu (opsional)" min="1" aria-label="Jumlah tamu" />
+      <button type="submit" class="btn primary">Kirim RSVP</button>
+      <p class="form-hint">Data RSVPs disimpan secara lokal di perangkat ini.</p>
+    </form>
+    <div id="rsvpList" class="rsvp-list" aria-live="polite"></div>
+    <div class="share">
+      <button id="shareBtn" class="btn outline">Bagikan Undangan</button>
+      <span id="shareStatus" class="share-status"></span>
+    </div>
+  </section>
+
+  <!-- Lokasi -->
+  <section id="location" class="section">
+    <h2 class="section-title">Lokasi Acara</h2>
+    <div class="map-wrap">
+      <iframe
+        title="Peta lokasi acara"
+        src="https://www.google.com/maps?q=1.106,-104.030&z=14&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+    <a class="btn primary" href="https://www.google.com/maps?q=1.106,-104.030" target="_blank" rel="noopener">Buka di Google Maps</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Dengan cinta, Ereh & Mikasa • 25 Oktober 2025</p>
+    <p class="tiny">Terima kasih atas doa dan kehadiran Anda.</p>
+  </footer>
+
+  <!-- Audio -->
+  <audio id="bgMusic" src="assets/music.mp3" preload="auto"></audio>
+
+  <!-- filepath: c:\xampp\htdocs\Website Pernikahan\index.html -->
+<div id="ucapanList" class="ucapan-list" aria-live="polite"></div>
+<button id="hapusUcapanBtn" class="btn outline">Hapus Semua Ucapan</button>
+
+<!-- filepath: c:\xampp\htdocs\Website Pernikahan\index.html -->
+<!-- Kirim doa -->
+<section id="guestbook" class="section">
+  <h2 class="section-title">Kirim Doa & Ucapan</h2>
+  <form id="doaForm" class="form">
+    <input type="text" id="namaDoa" placeholder="Nama Anda" required aria-label="Nama" />
+    <textarea id="pesanDoa" placeholder="Tulis doa atau ucapan..." required aria-label="Ucapan"></textarea>
+    <button type="submit" class="btn primary">Kirim</button>
+    <p class="form-hint">Ucapan disimpan secara lokal di perangkat ini.</p>
+  </form>
+  <div id="ucapanList" class="ucapan-list" aria-live="polite"></div>
+  <button id="hapusUcapanBtn" class="btn outline">Hapus Semua Ucapan</button>
+</section>
+  <script src="script.js"></script>
+</body>
+</html>
